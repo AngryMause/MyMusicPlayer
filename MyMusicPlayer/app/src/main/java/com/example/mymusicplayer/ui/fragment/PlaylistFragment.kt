@@ -17,7 +17,7 @@ class PlaylistFragment : BaseFragment(R.layout.fragment_song_list) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        initData()
+//        initData()
     }
 
     override fun onCreateView(
@@ -37,12 +37,12 @@ class PlaylistFragment : BaseFragment(R.layout.fragment_song_list) {
         return view
     }
 
-    private fun initData(){
-        list=ArrayList()
-        for (i in 1..3){
-            list.add(PlayListModel(R.drawable.ic_mask_group_one,R.drawable.ic_mask_group_two,R.drawable.ic_mask_group_three,R.drawable.ic_mask_group_four, "My PlaylistName $i"))
-        }
-    }
+//    private fun initData(){
+//        list=ArrayList()
+//        for (i in 1..3){
+//            list.add(PlayListModel(R.drawable.ic_mask_group_one,R.drawable.ic_mask_group_two,R.drawable.ic_mask_group_three,R.drawable.ic_mask_group_four, "My PlaylistName $i"))
+//        }
+//    }
 
 
 

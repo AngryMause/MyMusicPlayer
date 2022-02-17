@@ -85,8 +85,7 @@ class MainViewModel @ViewModelInject constructor(
 
     override fun onCleared() {
         super.onCleared()
-        musicServiceConnection.unSubscribe(MEDIA_ROOT_ID,
-            object : MediaBrowserCompat.SubscriptionCallback() {})
+        musicServiceConnection.unSubscribe(MEDIA_ROOT_ID,object : MediaBrowserCompat.SubscriptionCallback() {})
     }
 
 

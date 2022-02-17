@@ -9,9 +9,8 @@
 
 
     <ImageView
-        android:id="@+id/image_song_list_im"
+        android:id="@+id/image_song_list"
         android:layout_width="57dp"
-
         android:layout_height="57dp"
         android:layout_marginStart="10dp"
         android:background="@drawable/shape_song_image"
@@ -43,6 +42,7 @@
         android:layout_height="25dp"
         android:layout_marginStart="25dp"
         android:layout_marginEnd="32dp"
+        android:textStyle="italic"
         android:hint="simple artist name"
         android:textColor="@color/text_no_action_color"
         android:textColorHint="@color/text_no_action_color"
@@ -50,7 +50,7 @@
         app:layout_constraintEnd_toStartOf="@+id/setting_songs_rv"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintTop_toBottomOf="@+id/title_tx_list_rv"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/setting_songs_rv"

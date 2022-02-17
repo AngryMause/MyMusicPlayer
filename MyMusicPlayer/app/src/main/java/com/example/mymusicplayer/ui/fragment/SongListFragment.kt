@@ -18,7 +18,6 @@ import javax.inject.Inject
 class SongListFragment:Fragment(R.layout.fragment_song_list) {
 
     lateinit var mainViewModel: MainViewModel
-
     @Inject
     lateinit var songAdapter: SongAdapter
 

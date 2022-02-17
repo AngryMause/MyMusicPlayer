@@ -108,7 +108,7 @@ class MusicService : MediaBrowserServiceCompat() {
     private fun preparerPlayer(
         song: List<MediaMetadataCompat>, itemToPlay: MediaMetadataCompat?, playNow: Boolean
     ) {
-        val curentSongIndex = if (curPlaySong == null) 2 else song.indexOf(itemToPlay)
+        val curentSongIndex = if (curPlaySong == null) 0 else song.indexOf(itemToPlay)
         exoPlayer.prepare(fireBaseMusicSours.asMediaSource(dataSourceFactory))
         exoPlayer.seekTo(curentSongIndex, 0L)
         exoPlayer.playWhenReady = playNow
@@ -147,7 +147,7 @@ class MusicService : MediaBrowserServiceCompat() {
                         result.sendResult(fireBaseMusicSours.asMediaItem())
                         if (!isPlayerInitialized && fireBaseMusicSours.songs.isNotEmpty()) {
                             preparerPlayer(
-                                fireBaseMusicSours.songs, fireBaseMusicSours.songs[0], false
+                                fireBaseMusicSours.songs, fireBaseMusicSours.songs[0], true
                             )
 
                         }

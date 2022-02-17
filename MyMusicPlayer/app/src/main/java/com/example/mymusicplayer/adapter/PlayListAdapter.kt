@@ -34,11 +34,11 @@ class PlayListAdapter(private val playListStayle: ArrayList<PlayListModel>) :
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val curentItem = playListStayle[position]
-        holder.imageOne.setBackgroundResource(curentItem.imageOne)
-        holder.imageTwo.setBackgroundResource(curentItem.imageTwo)
-        holder.imageThree.setBackgroundResource(curentItem.imageThree)
-        holder.imageFour.setBackgroundResource(curentItem.imageFour)
-        holder.namePlaylist.text = playListStayle[position].namePlaylist
+//        holder.imageOne.setBackgroundResource(curentItem.imageOne)
+//        holder.imageTwo.setBackgroundResource(curentItem.imageTwo)
+//        holder.imageThree.setBackgroundResource(curentItem.imageThree)
+//        holder.imageFour.setBackgroundResource(curentItem.imageFour)
+//        holder.namePlaylist.text = playListStayle[position].namePlaylist
     }
 
     override fun getItemCount() = playListStayle.size
