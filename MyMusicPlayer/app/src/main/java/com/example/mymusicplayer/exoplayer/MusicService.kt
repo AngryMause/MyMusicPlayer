@@ -82,7 +82,7 @@ class MusicService : MediaBrowserServiceCompat() {
         }
 
 
-// Write true to play
+
         val musicPlayBackPreparer = MusicPlaybackPreparer(fireBaseMusicSours) {
             curPlaySong = it
             preparerPlayer(
@@ -111,7 +111,7 @@ class MusicService : MediaBrowserServiceCompat() {
         val curentSongIndex = if (curPlaySong == null) 0 else song.indexOf(itemToPlay)
         exoPlayer.prepare(fireBaseMusicSours.asMediaSource(dataSourceFactory))
         exoPlayer.seekTo(curentSongIndex, 0L)
-        exoPlayer.playWhenReady = playNow
+//        exoPlayer.playWhenReady = playNow
     }
 
     override fun onTaskRemoved(rootIntent: Intent?) {

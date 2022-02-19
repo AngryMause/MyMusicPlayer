@@ -5,10 +5,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.example.mymusicplayer.ui.viewmodel.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-open class BaseFragment(fragmentSongList: Int) : Fragment() {
+open class BaseFragment(fragmentSongList: Int)
+    :Fragment(fragmentSongList) {
+
+    protected lateinit var mainViewModel: MainViewModel
+
 
 
     override fun onCreateView(
@@ -25,7 +30,6 @@ open class BaseFragment(fragmentSongList: Int) : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
     }
-
 
 
 }

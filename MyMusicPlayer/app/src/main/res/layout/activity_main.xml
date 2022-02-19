@@ -101,7 +101,7 @@
     <FrameLayout
         android:id="@+id/main_container_fl"
         android:layout_width="match_parent"
-        android:layout_height="529dp"
+        android:layout_height="560dp"
         android:layout_marginTop="8dp"
         android:outlineAmbientShadowColor="@color/text_no_action_color"
         android:textAlignment="center" />

@@ -3,7 +3,6 @@ package com.example.mymusicplayer.ui.fragment
 import android.os.Bundle
 import android.view.View
 import androidx.core.view.isVisible
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mymusicplayer.R
@@ -15,9 +14,7 @@ import kotlinx.android.synthetic.main.fragment_song_list.*
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class SongListFragment:Fragment(R.layout.fragment_song_list) {
-
-    lateinit var mainViewModel: MainViewModel
+class SongListFragment:BaseFragment(R.layout.fragment_song_list) {
     @Inject
     lateinit var songAdapter: SongAdapter
 
