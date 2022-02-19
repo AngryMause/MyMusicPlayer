@@ -55,8 +55,7 @@ class MainActivity : AppCompatActivity() {
                     SUCCESS -> {
                         result.data?.let { songs ->
                             if (songs.isNotEmpty()) {
-                                setDataToVIew(songs)
-//
+                                setDataToBottomVIew(songs)
                             }
                         }
                     }
@@ -72,7 +71,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun setDataToVIew(songs: List<Song>) {
+    private fun setDataToBottomVIew(songs: List<Song>) {
         glide.load(
             (curPlayingSong ?: songs[0]).imageUrl
         )
