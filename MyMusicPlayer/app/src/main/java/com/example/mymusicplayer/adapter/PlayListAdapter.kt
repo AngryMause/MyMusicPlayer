@@ -1,49 +1,36 @@
 package com.example.mymusicplayer.adapter
 
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
-import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.AsyncListDiffer
+import com.bumptech.glide.RequestManager
 import com.example.mymusicplayer.R
-import com.example.mymusicplayer.data.entetis.PlayListModel
 import kotlinx.android.synthetic.main.rv_playlist_stayle.view.*
+import javax.inject.Inject
 
-class PlayListAdapter(private val playListStayle: ArrayList<PlayListModel>) :
-    RecyclerView.Adapter<PlayListAdapter.ViewHolder>() {
-
-
-    class ViewHolder(v: View) : RecyclerView.ViewHolder(v) {
-        val imageOne: ImageView = v.image_play_list_one
-        val imageTwo: ImageView = v.image_play_list_two
-        val imageThree: ImageView = v.image_play_list_three
-        val imageFour: ImageView = v.image_play_list_four
-        val namePlaylist: TextView = v.playlist_name
+class PlayListAdapter @Inject constructor(
+    private  var glide:RequestManager
+) : BaseAdapter(R.layout.rv_playlist_stayle)
+     {
+         override val differ= AsyncListDiffer(this,diffCallback)
 
 
-    }
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view =
-            LayoutInflater.from(parent.context).inflate(R.layout.rv_playlist_stayle, parent, false)
-        return ViewHolder(
-            view
-        )
-    }
-
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val curentItem = playListStayle[position]
-//        holder.imageOne.setBackgroundResource(curentItem.imageOne)
-//        holder.imageTwo.setBackgroundResource(curentItem.imageTwo)
-//        holder.imageThree.setBackgroundResource(curentItem.imageThree)
-//        holder.imageFour.setBackgroundResource(curentItem.imageFour)
-//        holder.namePlaylist.text = playListStayle[position].namePlaylist
-    }
-
-    override fun getItemCount() = playListStayle.size
+         override fun onBindViewHolder(holder: SongViewHolder, position: Int) {
+             val songImage=song[position]
+            holder.itemView.apply {
+                playlist_name.text=songImage.title
+                with(glide) {
+                    for (i in 1..song.size){
+                    load(songImage.imageUrl).into(image_play_list_three)
+                    load(songImage.imageUrl).into(image_play_list_two)
+                    load(songImage.imageUrl).into(image_play_list_four)
 
 
-}
+                    }
+                }
+            }
+//             glide.load(songs.imageUrl).into(image_song_list)
+         }
+
+
+     }
 
 

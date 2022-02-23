@@ -13,23 +13,22 @@
         android:background="@drawable/ic_arrow_left"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/song_name_tv"
-        app:layout_constraintHorizontal_bias="0.516"
+        app:layout_constraintHorizontal_bias="0.507"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.076" />
-
+        app:layout_constraintVertical_bias="0.059" />
 
     <TextView
         android:id="@+id/tv_curent_list"
         android:layout_width="20dp"
-        android:layout_height="34dp"
+        android:layout_height="20dp"
         android:background="@drawable/ic_list_icon"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.824"
+        app:layout_constraintHorizontal_bias="0.798"
         app:layout_constraintStart_toEndOf="@+id/tb_back_play"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.076" />
+        app:layout_constraintVertical_bias="0.064" />
 
     <TextView
         android:id="@+id/artist_name_tv"
@@ -85,11 +84,12 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.601" />
 
-    <TextView
+    <ImageView
         android:id="@+id/song_image_tv"
         android:layout_width="300dp"
         android:layout_height="300dp"
-        android:background="@drawable/ic_mask_group"
+        android:background="@drawable/shape_baton"
+        android:src="@drawable/ic_mask_group"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.45"
@@ -169,9 +169,10 @@
         android:id="@+id/next_song_tv"
         android:layout_width="40dp"
         android:layout_height="30dp"
+        android:background="@drawable/ic_skip"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.419"
+        app:layout_constraintHorizontal_bias="0.566"
         app:layout_constraintStart_toEndOf="@+id/play_pause_song_tv"
         app:layout_constraintTop_toBottomOf="@+id/seekBar"
         app:layout_constraintVertical_bias="0.525" />

@@ -18,20 +18,12 @@ class SongAdapter @Inject constructor(
         val songs = song[position]
         holderSong.itemView.apply {
             title_tx_list_rv.text = songs.title
-            subtitle_item_rv.text = songs.subTitle
+            subtitle_item_rv.text = songs.subtitle
             glide.load(songs.imageUrl).into(image_song_list)
-            print( "Title ${songs.subTitle} ")
-            print( "subTitle ${song.get(position).title} ")
-
-            // Click work
-            setOnClickListener {onClickListener.let { click -> click?.let { it1 -> it1(songs) } }
+            setOnClickListener {onClickListener.let {
+                    click -> click?.let { it1 -> it1(songs) } }
             }
-            //Click don't work
-//            setOnItemClickListener {
-//                onClickListener?.let { click ->
-//                    click(songs)
-//                }
-//            }
+
         }
     }
 

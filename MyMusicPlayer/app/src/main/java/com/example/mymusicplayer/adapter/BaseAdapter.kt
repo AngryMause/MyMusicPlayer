@@ -8,7 +8,8 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mymusicplayer.data.entetis.Song
 
-abstract class BaseAdapter(private val layoutId: Int) :
+abstract class BaseAdapter (
+    private val layoutId: Int) :
     RecyclerView.Adapter<BaseAdapter.SongViewHolder>() {
 
     class SongViewHolder(viewV: View) : RecyclerView.ViewHolder(viewV)
@@ -30,7 +31,6 @@ abstract class BaseAdapter(private val layoutId: Int) :
         set(value) = differ.submitList(value)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SongViewHolder {
-        //      println(song.size.toString() + " Adapter size")
         return SongViewHolder(
             LayoutInflater.from(parent.context).inflate(
                 layoutId,

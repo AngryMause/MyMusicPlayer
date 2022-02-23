@@ -1,54 +1,59 @@
 package com.example.mymusicplayer.ui.fragment
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mymusicplayer.R
 import com.example.mymusicplayer.adapter.PlayListAdapter
-import com.example.mymusicplayer.data.entetis.PlayListModel
+import com.example.mymusicplayer.other.Status
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.android.synthetic.main.fragment_playlist.*
+import javax.inject.Inject
 
-class PlaylistFragment : BaseFragment(R.layout.fragment_song_list) {
-    private lateinit var list: ArrayList<PlayListModel>
-    private lateinit var recyclerView: RecyclerView
-    private lateinit var layoutManager: RecyclerView.LayoutManager
+@AndroidEntryPoint
+class PlaylistFragment : BaseFragment(R.layout.fragment_playlist) {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-//        initData()
+
+    @Inject
+    lateinit var playListAdapter: PlayListAdapter
+    private lateinit var layoutManager1: RecyclerView.LayoutManager
+
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setUpRecycler()
+        subscribeToObservers()
+
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        val view = inflater.inflate(R.layout.fragment_playlist, container, false)
-        recyclerView= view.findViewById(R.id.rv_playlist)
-        recyclerView.setHasFixedSize(true)
-        layoutManager=GridLayoutManager(activity, SPAN_COUNT)
-        with(recyclerView) {
-            layoutManager = this@PlaylistFragment.layoutManager
+
+    private fun setUpRecycler() = rv_playlist.apply {
+        adapter = playListAdapter
+//        layoutManager = LinearLayoutManager(requireContext())
+        layoutManager1 = GridLayoutManager(activity, SPAN_COUNT)
+        with(rv_playlist) {
+            layoutManager = this@PlaylistFragment.layoutManager1
             scrollToPosition(0)
         }
-        recyclerView.adapter=PlayListAdapter(list)
-        return view
     }
 
-//    private fun initData(){
-//        list=ArrayList()
-//        for (i in 1..3){
-//            list.add(PlayListModel(R.drawable.ic_mask_group_one,R.drawable.ic_mask_group_two,R.drawable.ic_mask_group_three,R.drawable.ic_mask_group_four, "My PlaylistName $i"))
-//        }
-//    }
-
-
+    private fun subscribeToObservers() {
+        mainViewModel.mediaItem.observe(viewLifecycleOwner) { result ->
+            when (result.status) {
+                Status.SUCCESS -> {
+                    result.data?.let { songs ->
+                        playListAdapter.song = songs
+                    }
+                }
+                Status.ERROR -> Unit
+            }
+        }
+    }
 
     companion object {
         private var SPAN_COUNT = 2
-        private var DATASET_COUNT=15
+
     }
 
 
