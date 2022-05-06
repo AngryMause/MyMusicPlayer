@@ -12,11 +12,12 @@ import kotlinx.android.synthetic.main.fragment_song_list.*
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class SongListFragment : BaseFragment(R.layout.fragment_song_list) {
+class SongListFragment (
+
+) : BaseFragment(R.layout.fragment_song_list) {
+
     @Inject
-    lateinit var songAdapter: SongAdapter
-
-
+     lateinit var songAdapter: SongAdapter
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -32,13 +33,9 @@ class SongListFragment : BaseFragment(R.layout.fragment_song_list) {
         layoutManager = LinearLayoutManager(requireContext())
     }
 
-    override fun onResume() {
-        super.onResume()
-
-    }
-
 
     private fun subscribeToObserver() {
+
         mainViewModel.mediaItem.observe(viewLifecycleOwner) { result ->
             when (result.status) {
                 Status.SUCCESS -> {

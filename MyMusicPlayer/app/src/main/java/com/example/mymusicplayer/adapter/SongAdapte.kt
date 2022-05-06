@@ -20,10 +20,11 @@ class SongAdapter @Inject constructor(
             title_tx_list_rv.text = songs.title
             subtitle_item_rv.text = songs.subtitle
             glide.load(songs.imageUrl).into(image_song_list)
-            setOnClickListener {onClickListener.let {
-                    click -> click?.let { it1 -> it1(songs) } }
+            setOnClickListener {
+                onClickListener.let { click ->
+                    click?.let { it1 -> it1(songs) }
+                }
             }
-
         }
     }
 

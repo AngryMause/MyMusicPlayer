@@ -5,6 +5,7 @@
     android:layout_height="wrap_content"
     tools:context=".ui.fragment.SongListFragment">
 
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/all_song_rv"
         android:layout_width="match_parent"

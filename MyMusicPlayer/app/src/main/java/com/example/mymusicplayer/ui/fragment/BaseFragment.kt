@@ -8,13 +8,10 @@ import com.example.mymusicplayer.ui.viewmodel.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-open class BaseFragment(fragmentSongList: Int)
-    :Fragment(fragmentSongList) {
+open class BaseFragment(currentFragment: Int)
+    :Fragment(currentFragment) {
 
     protected lateinit var mainViewModel: MainViewModel
-
-
-
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

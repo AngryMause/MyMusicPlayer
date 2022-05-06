@@ -1,110 +1,112 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background_color"
-    android:orientation="vertical"
     tools:context=".ui.activity.MainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:background="@color/background_color"
-        android:orientation="horizontal">
+        android:layout_height="646dp"
+        android:orientation="vertical">
 
-        <TextView
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@color/background_color"
+            android:orientation="horizontal">
 
-            android:layout_width="106dp"
-            android:layout_height="24dp"
-            android:layout_gravity="center"
-            android:layout_marginLeft="10dp"
-            android:text="@string/app_name"
-            android:textColor="@color/text_no_action_color"
-            android:textSize="18dp"
-            android:textStyle="bold" />
+            <TextView
+                android:layout_width="106dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:text="@string/app_name"
+                android:textColor="@color/text_no_action_color"
+                android:textSize="18dp"
+                android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/tv_search"
-            android:layout_width="150dp"
-            android:layout_height="20dp"
-            android:layout_gravity="center"
-            android:layout_marginStart="40dp"
-            android:hint="Find your best music"
-            android:textAlignment="center"
-            android:textColorHint="@color/text_no_action_color" />
+            <TextView
+                android:id="@+id/tv_search"
+                android:layout_width="150dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="40dp"
+                android:hint="Find your best music"
+                android:textAlignment="center"
+                android:textColorHint="@color/text_no_action_color" />
 
-        <TextView
-            android:id="@+id/button_search_music_tv"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_gravity="center"
-            android:layout_marginLeft="10dp"
-            android:background="@mipmap/ic_search" />
+            <TextView
+                android:id="@+id/button_search_music_tv"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:background="@mipmap/ic_search" />
 
-        <TextView
-            android:id="@+id/tv_setting"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_gravity="center"
-            android:layout_marginStart="20dp"
-            android:background="@drawable/ic_more_setting" />
+            <TextView
+                android:id="@+id/tv_setting"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="20dp"
+                android:background="@drawable/ic_more_setting" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="2dp"
+            android:background="@color/background_color"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/songs_tv"
+                android:layout_width="60dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="10dp"
+                android:onClick="showListFargment"
+                android:text="@string/song_tv"
+                android:textColor="@color/text_no_action_color" />
+
+            <TextView
+                android:id="@+id/playlist_tv"
+                android:layout_width="60dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="20dp"
+                android:onClick="showPlayListFragment"
+                android:text="@string/playlist_tv"
+                android:textColor="@color/text_no_action_color" />
+
+            <TextView
+                android:id="@+id/artist_tv"
+                android:onClick="showArtistFragment"
+                android:layout_width="60dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="20dp"
+                android:text="@string/artist_tv"
+                android:textColor="@color/text_no_action_color" />
+
+            <TextView
+                android:id="@+id/album_tv"
+                android:onClick="showAlbumFragment"
+                android:layout_width="60dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="20dp"
+                android:text="@string/album_tv"
+                android:textColor="@color/text_no_action_color" />
+        </LinearLayout>
+
+        <FrameLayout
+            android:id="@+id/main_container_fl"
+            android:layout_width="match_parent"
+            android:layout_height="560dp"
+            android:layout_marginTop="8dp"
+            android:outlineAmbientShadowColor="@color/text_no_action_color"
+            android:textAlignment="center" />
     </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginTop="2dp"
-        android:background="@color/background_color"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/songs_tv"
-            android:layout_width="60dp"
-            android:layout_height="20dp"
-            android:layout_marginStart="10dp"
-            android:onClick="show"
-            android:text="@string/song_tv"
-            android:textColor="@color/text_no_action_color" />
-
-        <TextView
-            android:id="@+id/playlist_tv"
-            android:layout_width="60dp"
-            android:layout_height="20dp"
-            android:layout_marginStart="20dp"
-            android:onClick="showPlay"
-            android:text="@string/playlist_tv"
-            android:textColor="@color/text_no_action_color" />
-
-        <TextView
-            android:id="@+id/artist_tv"
-            android:layout_width="60dp"
-            android:layout_height="20dp"
-            android:layout_marginStart="20dp"
-            android:text="@string/artist_tv"
-            android:textColor="@color/text_no_action_color" />
-
-        <TextView
-            android:id="@+id/album_tv"
-            android:layout_width="60dp"
-            android:layout_height="20dp"
-            android:layout_marginStart="20dp"
-            android:text="@string/album_tv"
-            android:textColor="@color/text_no_action_color" />
-
-
-    </LinearLayout>
-
-
-    <FrameLayout
-        android:id="@+id/main_container_fl"
-        android:layout_width="match_parent"
-        android:layout_height="560dp"
-        android:layout_marginTop="8dp"
-        android:outlineAmbientShadowColor="@color/text_no_action_color"
-        android:textAlignment="center" />
 
     <include layout="@layout/botom_curren_song_navigation" />
 
-</LinearLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

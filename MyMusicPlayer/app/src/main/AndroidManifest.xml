@@ -13,12 +13,16 @@
         android:roundIcon="@drawable/beware_the_angry_mouse_by_coreart"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".ui.activity.BaseActivity"></activity>
+        <activity android:name=".ui.activity.SecondActivity" />
+
         <service android:name=".exoplayer.MusicService">
             <intent-filter>
-                <action android:name="android.media.browse.MediaBrowserService"/>
+                <action android:name="android.media.browse.MediaBrowserService" />
             </intent-filter>
         </service>
-        <activity android:name="com.example.mymusicplayer.ui.activity.MainActivity">
+
+        <activity android:name=".ui.activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
