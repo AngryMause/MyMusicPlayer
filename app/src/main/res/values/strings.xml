@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">My Player</string>
+    <string name="song_tv">Songs</string>
+    <string name="playlist_tv">Playlist</string>
+    <string name="artist_tv">Artist</string>
+    <string name="album_tv">Album</string>
+    <string name="notification_channel_description">Show the current playing music</string>
+    <string name="notification_channel_name">Music channel</string>
+    <string name="sample_name_playlist">PlayList One</string>
+    <string name="search_music">Search your music</string>
+    <string name="find_music">Find music</string>
+
+
+</resources>
