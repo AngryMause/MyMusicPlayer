@@ -12,7 +12,7 @@ class PlayListAdapter @Inject constructor(
     override val differ = AsyncListDiffer(this, diffCallback)
 
 
-    override fun onBindViewHolder(holder: SongViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: BaseViewHolder, position: Int) {
         val songImage = song[position]
         holder.itemView.apply {
             playlist_name.text = songImage.title
@@ -26,7 +26,6 @@ class PlayListAdapter @Inject constructor(
                 }
             }
         }
-//             glide.load(songs.imageUrl).into(image_song_list)
     }
 
 

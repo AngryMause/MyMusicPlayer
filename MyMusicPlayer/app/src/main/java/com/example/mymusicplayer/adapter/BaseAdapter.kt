@@ -10,9 +10,11 @@ import com.example.mymusicplayer.model.SongModel
 
 abstract class BaseAdapter (
     private val layoutId: Int) :
-    RecyclerView.Adapter<BaseAdapter.SongViewHolder>() {
+    RecyclerView.Adapter<BaseAdapter.BaseViewHolder>() {
 
-    class SongViewHolder(viewV: View) : RecyclerView.ViewHolder(viewV)
+
+    class BaseViewHolder(viewV: View) : RecyclerView.ViewHolder(viewV)
+
 
     protected val diffCallback = object : DiffUtil.ItemCallback<SongModel>() {
         override fun areItemsTheSame(oldItem: SongModel, newItem: SongModel): Boolean {
@@ -30,8 +32,8 @@ abstract class BaseAdapter (
         get() = differ.currentList
         set(value) = differ.submitList(value)
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SongViewHolder {
-        return SongViewHolder(
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder {
+        return BaseViewHolder(
             LayoutInflater.from(parent.context).inflate(
                 layoutId,
                 parent,
@@ -40,8 +42,6 @@ abstract class BaseAdapter (
         )
 
     }
-
-
     protected var onClickListener: ((SongModel) -> Unit)? = null
 
     fun setOnItemClickListener(listener: (SongModel) -> Unit) {

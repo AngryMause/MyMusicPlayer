@@ -39,6 +39,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var bottomSheetBehavior: BottomSheetBehavior<LinearLayout>
     private val actionColor: Int = R.color.text_action_color
     private val noActionColor: Int = R.color.text_not_in_focus
+
     @Inject
     lateinit var glide: RequestManager
 
@@ -58,6 +59,7 @@ class MainActivity : AppCompatActivity() {
         bottomSheetBehavior.addBottomSheetCallback(object :
             BottomSheetBehavior.BottomSheetCallback() {
             override fun onStateChanged(bottomSheet: View, newState: Int) {
+
             }
 
             override fun onSlide(bottomSheet: View, slideOffset: Float) {
@@ -72,12 +74,10 @@ class MainActivity : AppCompatActivity() {
             }
         })
 
-        tv_search.addTextChangedListener{ text: Editable? ->
+        tv_search.addTextChangedListener { text: Editable? ->
             listOfSongs.filter(text.toString())
         }
     }
-
-
 
 
     private fun subscribeToObservers() {

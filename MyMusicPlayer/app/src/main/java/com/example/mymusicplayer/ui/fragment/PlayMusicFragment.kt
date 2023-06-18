@@ -44,7 +44,6 @@ class PlayMusicFragment : BaseFragment(R.layout.flragment_play_music) {
     private fun seekBar() {
         seekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seek: SeekBar?, progres: Int, p2: Boolean) {
-
                 if (p2) {
                     setCurrentPlayerToTextView(progres.toLong())
                 }
@@ -112,7 +111,6 @@ class PlayMusicFragment : BaseFragment(R.layout.flragment_play_music) {
                 if (playbackStateCompat?.isPlaying == true) R.drawable.ic_pause_large else R.drawable.exo_icon_play
             )
         }
-
     }
 
 
